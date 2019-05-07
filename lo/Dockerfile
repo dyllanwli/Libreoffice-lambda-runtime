@@ -6,8 +6,9 @@ FROM amazonlinux:2.0.20190228 as builder
 
 ARG NODE_VERSION="8.10.0"
 
-RUN yum clean all && yum update && \
-    yum install -y install gdb \
+RUN yum clean all && yum update -y && \
+    yum install -y gdb \
+    autoconf \
     libreoffice \
     libreoffice-writer \
     ure \
