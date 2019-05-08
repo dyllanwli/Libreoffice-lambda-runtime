@@ -9,7 +9,6 @@ export LO_VERSION="6.2.4.1"
 yum-config-manager --enable epel
 yum install -y \
     autoconf \
-    # ccache \
     which \
     expat-devel \
     expat-devel.x86_64 \
@@ -56,8 +55,8 @@ gpgkey=http://ftp.heanet.ie/pub/centos/7/os/x86_64/RPM-GPG-KEY-CentOS-7\n\
 yum repolist && \
 yum install -y liblangtag && cp -r /usr/share/liblangtag /usr/local/share/liblangtag/
 
-curl -L http://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/c/ccache-3.3.4-1.el7.x86_64.rpm && \
-yum install -y ccache.rpm
+# curl -L http://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/c/ccache-3.3.4-1.el7.x86_64.rpm && \
+# yum install -y ccache.rpm
 
 # clone libreoffice sources
 curl -L https://github.com/LibreOffice/core/archive/libreoffice-${LO_VERSION}.tar.gz | tar -xz
@@ -70,7 +69,7 @@ echo "lo_sources_ver=${LO_VERSION}" >> sources.ver
 
 
 # set this cache if you are going to compile several times
-ccache --max-size 32 G && ccache -s
+# ccache --max-size 32 G && ccache -s
 
 # the most important part. Run ./autogen.sh --help to see wha each option means
 ./autogen.sh \
