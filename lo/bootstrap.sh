@@ -6,7 +6,7 @@ yum update -y && yum install -y \
     libcairo.so.2 \
     tar
 
-curl -sL http://download.documentfoundation.org/libreoffice/stable/${LO_VERSION}/rpm/x86_64/LibreOffice_${LO_VERSION}_Linux_x86-64_rpm.tar.gz | tar -xz
+curl -sL http://download.documentfoundation.org/libreoffice/stable/${LO_VERSION}/rpm/x86_64/LibreOffice_${LO_VERSION}_Linux_x86-64_rpm.tar.gz | tar -xzf
 mv LibreOffice* LibreOffice && cd LibreOffice && yum localinstall -y RPMS/*rpm
 
 
