@@ -11,6 +11,7 @@ COPY bootstrap.sh /
 RUN bash ./bootstrap.sh
 
 # NODEJS
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash && . ~/.nvm/nvm.sh
-  
-RUN nvm install ${NODE_VERSION}
+RUN curl -s -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash \
+  ; export NVM_DIR="/root/.nvm" && \
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && \
+  nvm install ${NODE_VERSION}
