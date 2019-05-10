@@ -5,6 +5,7 @@
 FROM amazonlinux:2.0.20190228 as builder
 
 ARG NODE_VERSION="8.10.0"
+ARG LO_VERSION="6.2.3"
 
 # COPY bootstrap.sh /
 
@@ -12,8 +13,10 @@ ARG NODE_VERSION="8.10.0"
 
 RUN yum update -y && yum install -y \
     https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
-    https://extras.getpagespeed.com/release-el7-latest.rpm &&\
-    yum install -y brotli \
+    https://extras.getpagespeed.com/release-el7-latest.rpm 
+
+
+RUN yum install -y brotli \
     java-1.8.0-openjdk-devel \
     libcairo.so.2 \
     binutils \
