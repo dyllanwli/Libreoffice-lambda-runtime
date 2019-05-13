@@ -27,8 +27,9 @@ RUN yum install -y brotli \
 
 RUN curl -sL http://download.documentfoundation.org/libreoffice/stable/${LO_VERSION}/rpm/x86_64/LibreOffice_${LO_VERSION}_Linux_x86-64_rpm.tar.gz | tar -xz && \
     mv /LibreOffice* LibreOffice && cd LibreOffice && yum localinstall -y RPMS/*rpm && \
-    rm -rf /LibreOffice && \
-    strip /opt/libreoffice6.2/**/* && \
+    rm -rf /LibreOffice
+
+RUN strip /opt/libreoffice6.2/**/* ; \
     rm -rf ./share/gallery \
         ./share/config/images_*.zip \
         ./readmes \
